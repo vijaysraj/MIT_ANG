@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="empCtrl"> 
+
+<p>Name: {{emp.name}}</p>
+<p>Age: {{emp.age}}</p>
+<p>details: {{emp.details}}</p>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('empCtrl', function($scope, $http, $location) {
+  var id = $location.search().id
+  $http.get("empdetail.json?id="+id).then(function (response) {
+    $scope.emp = response.data;
+  });
+});
+</script>
+
+</body>
+</html>

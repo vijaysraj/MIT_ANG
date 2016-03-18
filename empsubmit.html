@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="empCtrl">
+  <p>Name : <input type="text" ng-model="emp.name"></p>
+  <p>Age : <input type="text" ng-model="emp.age"></p>
+  <p>Details : <textarea ng-model="emp.details"></textarea></p>
+  <p><button ng-click="postData()">Submit</button></p>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('empCtrl', function($scope, $http, $window) {
+  $scope.postData = function () {
+    $http({
+        method: 'POST',
+        url: 'http://localhost/angular/addemp',
+        data: {data: $scope.emp},
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    }).success(redirect());
+  }
+  redirect = function() {
+    $window.location.href = 'emplist.html';
+  } 
+});
+</script>
+
+</body>
+</html>
