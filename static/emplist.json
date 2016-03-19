@@ -1,16 +1,12 @@
 {
-  "records":[
-    { 
-      "id": 1,
+  "records":[{ 
       "name":"Employee 1",
       "age":"22",
       "details":"Employee 1 Details"
     },
     {
-      "id": 2,
       "name":"Employee 2",
       "age":"24",
       "details":"Employee 2 Details"
-    }
-  ]
+    }]
 } 

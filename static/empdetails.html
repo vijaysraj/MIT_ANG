@@ -14,8 +14,8 @@
 var app = angular.module('myApp', []);
 app.controller('empCtrl', function($scope, $http, $location) {
   var id = $location.search().id
-  $http.get("empdetail.json?id="+id).then(function (response) {
-    $scope.emp = response.data;
+  $http.get("emplist.json?id="+id).then(function (response) {
+    $scope.emp = response.data.records[id - 1];
   });
 });
 </script>
